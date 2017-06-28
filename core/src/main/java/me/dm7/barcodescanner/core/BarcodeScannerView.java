@@ -76,12 +76,13 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
         } finally {
             a.recycle();
         }
-        scaleGestureDetector = new ScaleGestureDetector(context, new ScaleListener());
         init();
     }
 
     private void init() {
         mViewFinderView = createViewFinderView(getContext());
+        scaleGestureDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
+
     }
 
     public final void setupLayout(CameraWrapper cameraWrapper) {
