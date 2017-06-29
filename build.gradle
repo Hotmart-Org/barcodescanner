@@ -13,7 +13,7 @@ buildscript {
 
 allprojects {
     group = 'me.dm7.barcodescanner'
-    version = '1.9.3'
+    version = '1.0'
 
     repositories {
         mavenCentral()
@@ -44,24 +44,17 @@ subprojects {
                 defaultConfig {
                     minSdkVersion versions.min_sdk
                     targetSdkVersion versions.target_sdk
-                    versionCode 193
-                    versionName "1.9.3"
+                    versionCode 1
+                    versionName "1.0"
                 }
             }
         }
         if(project.isLibrary && rootProject.hasProperty('sonatypeUsername') && rootProject.hasProperty('sonatypePassword')) {
             configure(project) {
                 apply plugin: 'maven'
-                apply plugin: 'signing'
-
-                signing {
-                    required { gradle.taskGraph.hasTask("uploadArchives") }
-                    sign configurations.archives
-                }
 
                 uploadArchives {
                     repositories.mavenDeployer {
-                        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
                         repository(url: sonatypeRepo) {
                             authentication(userName: sonatypeUsername , password: sonatypePassword)
@@ -80,12 +73,12 @@ subprojects {
                             packaging project.pomPackaging
                             artifactId project.pomArtifactId
                             description project.pomDescription
-                            url 'https://github.com/dm77/barcodescanner'
+                            url 'https://github.com/Hotmart-Org/barcodescanner'
 
                             scm {
-                                url 'scm:git@github.com:dm77/barcodescanner.git'
-                                connection 'scm:git@github.com:dm77/barcodescanner.git'
-                                developerConnection 'scm:git@github.com:dm77/barcodescanner.git'
+                                url 'git@github.com:Hotmart-Org/barcodescanner.git'
+                                connection 'git@github.com:Hotmart-Org/barcodescanner.git'
+                                developerConnection 'git@github.com:Hotmart-Org/barcodescanner.git'
                             }
 
                             licenses {
@@ -98,9 +91,9 @@ subprojects {
 
                             developers {
                                 developer {
-                                    id 'dm77'
-                                    name 'Dushyanth Maguluru'
-                                    email 'dushyanth.maguluru@gmail.com'
+                                    id 'joaonh'
+                                    name 'João Nogueira'
+                                    email 'joao.nogueira@hotmart.com.br'
                                 }
                             }
                         }
