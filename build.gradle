@@ -12,7 +12,7 @@ buildscript {
 }
 
 allprojects {
-    group = 'me.dm7.barcodescanner'
+    group = 'com.hotmart.barcodescanner'
     version = '1.0'
 
     repositories {
@@ -59,11 +59,6 @@ subprojects {
                         repository(url: sonatypeRepo) {
                             authentication(userName: sonatypeUsername , password: sonatypePassword)
                             releases(updatePolicy: 'always')
-                        }
-
-                        snapshotRepository(url: sonatypeSnapshotRepo) {
-                            authentication(userName: sonatypeUsername , password: sonatypePassword)
-                            snapshots(updatePolicy: 'always')
                         }
 
                         pom.project {
