@@ -12,7 +12,7 @@ buildscript {
 }
 
 allprojects {
-    group = 'me.dm7.barcodescanner'
+    group = 'com.hotmart.barcodescanner'
     version = '1.1'
 
     repositories {
