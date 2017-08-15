@@ -334,8 +334,12 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        scaleGestureDetector.onTouchEvent(event);
-        return true;
+        if(mCameraWrapper.mCamera != null) {
+            scaleGestureDetector.onTouchEvent(event);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getMaxZoom() {
